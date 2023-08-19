@@ -13,3 +13,13 @@ window.addEventListener("scroll", () => {
   navBar.classList.toggle("scrolling-active", windowPosition);
   menuNav.classList.remove("menu-active");
 });
+
+
+var options = {
+  strings: ['Numero Uno Arroefy', 'yqroo', 'UnoArroefy'],
+  typeSpeed: 40,
+  backSpeed: 40,
+  loop: true
+};
+
+var typed = new Typed('.typer', options);

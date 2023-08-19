@@ -11,7 +11,7 @@ body {
 }
 
 header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../../assets/img/hero-bg.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)), url("../../assets/img/bghero.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -36,8 +36,8 @@ header {
 }
 
 .navbar.scrolling-active {
-  background-color: #0050b3;
-  padding: 30px 0 30px 0;
+  background-color: #9d00bd;
+  padding: 25px 0 25px 0;
 }
 
 .navbar .box-navbar {
@@ -49,6 +49,10 @@ header {
 .navbar .box-navbar .logo h1 {
   color: white;
   font-size: 24px;
+}
+
+.navbar.navbar.navbar.scrolling-active .box-navbar .logo h1 {
+  color: rgb(100, 255, 0);
 }
 
 .navbar .box-navbar .menu {
@@ -64,14 +68,20 @@ header {
   text-decoration: none;
   color: white;
   padding: 10px 15px 10px 15px;
-}
-
-.navbar .box-navbar .menu .active a {
-  background-color: #0050b3;
+  border-radius: 8px;
 }
 
 .navbar .box-navbar .menu li a:hover {
-  background-color: #0050b3;
+  color: #9d00bd;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+.navbar.navbar.scrolling-active .box-navbar .menu li a:hover {
+  color: black;
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -109,255 +119,77 @@ header {
   margin-bottom: 20px;
 }
 
+.hero .box-hero .prefix {
+  /* color: rgb(100, 255, 0); */
+  color: #9d00bd;
+}
+
 .hero .box-hero .box:nth-child(1) p {
   line-height: 2;
   color: white;
   margin-bottom: 20px;
   font-weight: 100;
-}
-
-.hero .box-hero .box:nth-child(1) button {
-  width: 180px;
-  height: 50px;
-  background-color: #0050b3;
-  font-weight: bold;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-}
-
-.hero .box-hero .box:nth-child(1) button:hover {
-  background-color: #053e83;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
+  font-size: 20px;
 }
 
 .hero .box-hero .box:nth-child(2) img {
   width: 100%;
 }
 
-.services {
+.emoji {
+  display: inline-block;
+  animation: wave 2s infinite linear;
+}
+
+.main {
   width: 100%;
-  min-height: 50vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   padding: 100px 0 50px 0;
 }
 
-.services .box-services {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  row-gap: 50px;
-}
-
-.services .box-services .box {
-  width: 300px;
-  text-align: center;
+.main .content{
   color: white;
 }
 
-.services .box-services .box i {
-  font-size: 40px;
-  margin-bottom: 10px;
-  color: #0050b3;
-}
-
-.services .box-services .box p {
-  font-weight: 100;
-}
-
-.pantai {
-  padding: 50px 0 50px 0;
-}
-
-.pantai .box-pantai {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  row-gap: 50px;
-}
-
-.pantai .box-pantai .box {
-  text-align: center;
-  color: white;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-}
-
-.pantai .box-pantai .box:hover {
-  transform: translateY(-20px);
-  -webkit-transform: translateY(-20px);
-  -moz-transform: translateY(-20px);
-  -ms-transform: translateY(-20px);
-  -o-transform: translateY(-20px);
-}
-
-.pantai .box-pantai .box img {
+.main .content .title{
   width: 100%;
-  height: 200px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-}
-
-.pantai .box-pantai .box p {
-  font-weight: 100;
-  margin-bottom: 10px;
-}
-
-.pantai .box-pantai .box button {
-  width: 120px;
-  height: 40px;
-  border: none;
-  background-color: #0050b3;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  cursor: pointer;
-}
-
-.pantai .box-pantai .box button:hover {
-  background-color: #053e83;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-}
-
-.daftar {
-  padding: 50px 0 100px 0;
-}
-
-.daftar .box-daftar {
-  color: white;
-  text-align: center;
-}
-
-.daftar .box-daftar h1 {
-  margin-bottom: 50px;
-}
-
-.daftar .box-daftar h3 {
-  font-weight: 400;
-  margin-bottom: 10px;
-  animation: animasi;
-  -webkit-animation: animasi 2s infinite;
-}
-
-@keyframes animasi {
-  0% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    -o-transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-  }
-}
-
-.daftar .box-daftar button {
-  border: none;
-  min-width: 100px;
-  min-height: 40px;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  cursor: pointer;
-  background-color: #0050b3;
-  color: white;
-  padding-inline: 10px;
-}
-
-.daftar .box-daftar button i {
-  font-size: 16px;
-  font-weight: bold;
-  margin-inline: 5px;
-}
-
-.footer {
-  padding: 50px 0 50px 0;
-  background-color: #0050b3;
-}
-
-.footer .box-footer {
-  display: grid;
-  grid-template-columns: 2fr auto 2fr;
-  column-gap: 100px;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.footer .box-footer .box {
-  color: white;
-}
-
-.footer .box-footer .box:nth-child(2) {
+.main .content .ikon{
+  margin-top: 5vh;
   display: flex;
-  flex-direction: column;
-  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
 }
 
-.footer .box-footer .box:nth-child(2) a {
-  text-decoration: none;
-  color: white;
-  font-weight: 200;
+.main .content .ikon .box i{
+  font-size: 36px;
 }
 
-.footer .box-footer .box p {
-  font-weight: 200;
+.content .about-me{
+  margin-bottom: 10vh;
 }
 
-.footer .box-footer .box:nth-child(1) p {
-  font-size: 12px;
-  line-height: 2;
-  margin-top: 10px;
+.content .about-me .text{
+  margin-top: 5vh;
+  text-align: justify;
 }
 
-.footer .box-footer .box:nth-child(3) {
-  text-align: center;
-}
-
-.footer .box-footer .box:nth-child(3) span {
-  font-weight: bold;
-}
-
-@media screen and (max-width: 1200px) {
-  .hero .box-hero .box:nth-child(1) button {
-    width: 150px;
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
   }
 }
 
@@ -387,26 +219,25 @@ header {
     -moz-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
-    background-color: #0050b3;
+    backdrop-filter: blur(2px);
   }
 
+  .navbar.navbar.scrolling-active .box-navbar .menu {
+    background-color: #9d00bd;
+    backdrop-filter: none;
+  }
   .navbar .box-navbar .menu.menu-active {
-    top: 80px;
+    top: 70px;
     opacity: 1;
-    border-top: 1px solid white;
+
+  }
+
+  .hero .box-hero .box:nth-child(1) h1 {
+    font-size: 30px;
   }
 
   .hero .box-hero .box:nth-child(1) p {
-    font-size: 14px;
-  }
-
-  .daftar .box-daftar h1 {
-    font-size: 28px;
-  }
-
-  .footer .box-footer {
-    grid-template-columns: 1fr;
-    row-gap: 30px;
+    font-size: 18px;
   }
 }
 
@@ -430,17 +261,15 @@ header {
   .hero .box-hero .box:nth-child(2) img {
     width: 55vw;
   }
+
+  .hero .box-hero .box:nth-child(1) h1 {
+    font-size: 40px;
+  }
 }
 
 @media screen and (max-width: 575px) {
   .hero .box-hero .box:nth-child(1) h1 {
-    font-size: 18px;
-  }
-}
-
-@media screen and (max-width: 475px) {
-  .daftar .box-daftar button {
-    margin-bottom: 5px;
+    font-size: 30px;
   }
 }
 
@@ -449,9 +278,5 @@ header {
     width: 55vw;
     align-self: flex-end;
     justify-self: center;
-  }
-
-  .pantai .box-pantai {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
