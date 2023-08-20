@@ -173,6 +173,10 @@ header {
   font-size: 36px;
 }
 
+.ikon .box i{
+  color: #9d00bd;
+}
+
 .ikon .box i:hover{
   transform: translateY(-5px);
 }
