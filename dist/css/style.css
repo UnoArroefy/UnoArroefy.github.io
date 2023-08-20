@@ -81,7 +81,8 @@ header {
 }
 
 .navbar.navbar.scrolling-active .box-navbar .menu li a:hover {
-  color: black;
+  /* color: black; */
+  color: rgb(100, 255, 0);
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -172,6 +173,10 @@ header {
   font-size: 36px;
 }
 
+.ikon .box i:hover{
+  transform: translateY(-5px);
+}
+
 .content .about-me{
   margin-bottom: 10vh;
 }
@@ -179,6 +184,15 @@ header {
 .content .about-me .text{
   margin-top: 5vh;
   text-align: justify;
+}
+
+.paragraph-style{
+  margin-bottom: 10px;
+  text-indent: 40px;
+}
+
+.paragraph-style a:hover{
+  font-size: 20px;
 }
 
 @keyframes wave {
@@ -233,7 +247,7 @@ header {
   }
 
   .hero .box-hero .box:nth-child(1) h1 {
-    font-size: 30px;
+    font-size: 38px;
   }
 
   .hero .box-hero .box:nth-child(1) p {
@@ -265,11 +279,22 @@ header {
   .hero .box-hero .box:nth-child(1) h1 {
     font-size: 40px;
   }
+
+  .title{
+    font-size: 15px;
+  }
 }
 
 @media screen and (max-width: 575px) {
   .hero .box-hero .box:nth-child(1) h1 {
     font-size: 30px;
+  }
+  .title{
+    font-size: 10px;
+  }
+
+  .about-me .text{
+    font-size: 15px;
   }
 }
 
