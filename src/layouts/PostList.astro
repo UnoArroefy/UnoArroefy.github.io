@@ -1,0 +1,40 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config.json";
+
+import Footer from "$components/Footer.astro";
+import Header from "$components/Header.astro";
+import BaseLayout from "$layouts/BaseLayout.astro";
+import BlogEntry from "$components/BlogEntry.astro";
+
+import Pagination from "$components/Pagination.astro";
+import ProseWrapper from "./ProseWrapper.astro";
+
+type Props = {
+  posts: Array<any>;
+  totalPages: number;
+  currentPage: number;
+  tag?: string;
+};
+
+const { posts, totalPages, currentPage, tag } = Astro.props;
+---
+
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <Header active="blog" />
+  <main class="max-w-2xl lg:max-w-3xl mx-auto mt-16 px-4">
+    <ProseWrapper>
+      <slot />
+    </ProseWrapper>
+    <div class="my-14 space-y-16 max-w-3xl">
+      {posts.map((post: any) => <BlogEntry {...post.data} slug={post.slug} />)}
+    </div>
+
+    {
+      totalPages > 1 ? (
+        <Pagination current={currentPage} total={totalPages} {tag} />
+      ) : null
+    }
+  </main>
+
+  <Footer />
+</BaseLayout>

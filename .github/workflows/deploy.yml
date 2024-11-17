@@ -1,0 +1,46 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+
+      - name: Set SITE and BASE values if MANUAL_SITE_BASE is false
+        run: |
+          if jq '.MANUAL_SITE_BASE == false' src/config.json; then
+            SITE="https://$GITHUB_ACTOR.github.io"
+            REPO_NAME="${GITHUB_REPOSITORY#*/}"
+            if [ "$REPO_NAME" = "$GITHUB_ACTOR.github.io" ]; then
+              BASE=""
+            else
+              BASE="/$REPO_NAME"
+            fi
+            jq --arg SITE "$SITE" --arg BASE "$BASE" \
+               '.SITE = $SITE | .BASE = $BASE' src/config.json > tmp.$$.json && mv tmp.$$.json src/config.json
+          fi
+
+      - name: Install, build, and upload your site
+        uses: withastro/action@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
