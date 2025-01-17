@@ -4,7 +4,7 @@ description: "Writeup for bunny jumper challenge from iris CTF 2025"
 pubDate: "Jan 7 2025"
 published: true
 heroImage: "/src/assets/bunny.png"
-tags: ["Reverse Engineering", "CTF"]
+tags: ["RE", "CTF"]
 ---
 
 The challenge was hosted online in https://bunny-jumper-web.chal.irisc.tf/, if the link was already dead you can host it with this [html](https://pastebin.com/raw/896WPk8k).
@@ -221,7 +221,7 @@ print(bytes(enc))
 
 TBH I don't really have any idea how to reverse the encryption it seem reversible but it's 1 A.M when I try to solve it so my brain wasn't functioning (That's another way to say that i'm skill issued and dumb) I realize that this could be bruteforced with reasonable charset.
 
-Let's take a look at the comparation
+Let's take a look at the comparison
 
 ```javascript
 for (;;) {
