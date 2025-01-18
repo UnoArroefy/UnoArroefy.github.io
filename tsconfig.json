@@ -4,14 +4,9 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "$lib/*": ["src/lib/*"],
-      "$components/*": ["src/components/*"],
-      "$layouts/*": ["src/layouts/*"],
-      "$pages/*": ["src/pages/*"],
-      "$styles/*": ["src/styles/*"],
-      "$assets/*": ["src/assets/*"],
-      "$examples/*": ["src/examples/*"]
-    }
-  },
-  "exclude": ["public/pagefind", "dist"]
+      "@/*": ["./src/*"]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }

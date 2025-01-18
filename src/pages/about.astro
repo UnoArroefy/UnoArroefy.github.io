@@ -1,0 +1,44 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Container from '@/components/Container.astro'
+// import Link from '@/components/Link.astro'
+// import ProjectCard from '@/components/ProjectCard.astro'
+import { SITE } from '@/consts'
+import Layout from '@/layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+
+// const projects = await getCollection('projects')
+---
+
+<Layout title="About" description={SITE.DESCRIPTION}>
+  <Container class="flex flex-col gap-y-6">
+    <Breadcrumbs items={[{ label: 'About', icon: 'lucide:info' }]} />
+
+    <section>
+      <div class="min-w-full">
+        <h1 class="text-4xl font-bold">About Me</h1>
+
+        <div class="prose prose-neutral mb-8 dark:prose-invert">
+          <p class="mt-4">
+            Hi there! My name is Numero Uno Arroefy, but most people know me as <strong>yqroo</strong>. 
+            I'm passionate about <strong>cybersecurity</strong> and <strong>programming</strong>, constantly exploring new challenges and learning opportunities in these fields.
+          </p>
+
+          <p class="mt-4">
+            I am also an active participant in <strong>Capture the Flag (CTF)</strong> competitions, where I enjoy tackling complex challenges related to reverse engineering, binary exploitation, and web security. 
+            On this blog, I share my journey by posting <strong>writeups</strong> for the challenges I solve, along with tips and insights for fellow enthusiasts.
+          </p>
+
+          <p class="mt-4">
+            Currently, I am a <strong>Computer Science student</strong> at <strong>Institut Pertanian Bogor</strong>. 
+            I am also a proud member of <strong>L3ak</strong>, a CTF team, and part of <strong>Cyber Security IPB (CSI)</strong>, where I actively contribute to building a stronger cybersecurity community and developing my skills through collaboration.
+          </p>
+          
+          <p class="mt-4">
+            Thank you for visiting my blog! Feel free to explore my content, and don't hesitate to reach out if you'd like to connect.
+          </p>
+        </div> 
+      </div>
+    </section>
+  </Container>
+</Layout>

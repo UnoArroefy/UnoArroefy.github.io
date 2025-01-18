@@ -1,50 +1,42 @@
 ---
-import {
-  BASE,
-  MANUAL_DARK_MODE,
-  SEARCH_ENABLED,
-  SITE_FAVICON,
-} from "../config.json";
-import ThemeToggle from "./ThemeToggle.astro";
-import HeaderLink from "./HeaderLink.astro";
-import CodeCopyButton from "./CodeCopyButton.astro";
-
-import CommandPalette from "./search/CommandPalette.svelte";
-import Search from "./search/Search.svelte";
-
-const { active } = Astro.props;
+import Container from '@/components/Container.astro'
+import Link from '@/components/Link.astro'
+import MobileMenu from '@/components/ui/mobile-menu'
+import { ModeToggle } from '@/components/ui/mode-toggle'
+import { NAV_LINKS, SITE } from '@/consts'
+import { Image } from 'astro:assets'
+import logo from '../../public/yqroo.jpeg'
 ---
 
-<header>
-  <nav
-    class="flex items-center justify-between p-6 lg:px-8"
-    aria-label="Global"
-  >
-    <div class="flex lg:flex-1">
-      <a href={BASE + "/"} class="p-1.5">
-        <span class="sr-only">go to home</span>
-
-        <div class="text-3xl">{SITE_FAVICON}</div>
-      </a>
-    </div>
-    <div class="flex gap-x-10">
-      <HeaderLink
-        href={BASE + "/"}
-        active={active === "blog"}
-        class="text-sm font-semibold leading-6">Blog</HeaderLink
+<header
+  class="sticky top-0 z-10 bg-background/85 backdrop-blur-md"
+  transition:persist
+>
+  <Container>
+    <div class="flex flex-wrap items-center justify-between gap-4 py-4">
+      <Link
+        href="/"
+        class="flex flex-shrink-0 items-center gap-2 text-xl font-semibold transition-colors duration-300 hover:text-primary"
       >
-      <HeaderLink
-        href={BASE + "/about"}
-        active={active === "about"}
-        class="text-sm font-semibold leading-6">About</HeaderLink
-      >
-
-      {MANUAL_DARK_MODE ? <ThemeToggle /> : null}
-
-      {SEARCH_ENABLED ? <Search client:visible /> : null}
+        <Image src={logo} alt="Logo" class="size-8" />
+        {SITE.TITLE}
+      </Link>
+      <div class="flex items-center gap-2 md:gap-4">
+        <nav class="hidden items-center gap-4 text-sm sm:gap-6 md:flex">
+          {
+            NAV_LINKS.map((item) => (
+              <Link
+                href={item.href}
+                class="capitalize text-foreground/60 transition-colors hover:text-foreground/80"
+              >
+                {item.label}
+              </Link>
+            ))
+          }
+        </nav>
+        <MobileMenu client:load transition:persist />
+        <ModeToggle client:load transition:persist />
+      </div>
     </div>
-  </nav>
+  </Container>
 </header>
-
-<CommandPalette client:load />
-<CodeCopyButton />

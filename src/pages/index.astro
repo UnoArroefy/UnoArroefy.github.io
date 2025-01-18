@@ -1,15 +1,71 @@
 ---
-import { POSTS_PER_PAGE } from "../config.json";
+import BlogCard from '@/components/BlogCard.astro'
+import Container from '@/components/Container.astro'
+import Link from '@/components/Link.astro'
+import { buttonVariants } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { SITE } from '@/consts'
+import Layout from '@/layouts/Layout.astro'
+import { getCollection } from 'astro:content'
 
-import { Content } from "$content/info/description.md";
-import { getBlogPosts } from "src/utils";
-import PostList from "$layouts/PostList.astro";
-
-const posts = (await getBlogPosts()).splice(0, POSTS_PER_PAGE);
-
-const total = Math.ceil((await getBlogPosts()).length / POSTS_PER_PAGE);
+const blog = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE)
 ---
 
-<PostList {posts} totalPages={total} currentPage={1}>
-  <Content />
-</PostList>
+<Layout title="Home" description={SITE.DESCRIPTION}>
+  <Container class="flex flex-col gap-y-6">
+    <section>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-3xl">Welcome to yqroo's Blog</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p class="mb-2 text-sm text-muted-foreground">
+            I write about <strong>cybersecurity</strong>, <strong>programming</strong>, and my journey in <strong>CTF competitions</strong>.
+          </p>
+          <p class="mb-2 text-sm text-muted-foreground">
+            Check out my other work on
+            <Link
+              href="https://hackmd.io/@yqroo"
+              class="text-foreground"
+              external
+            >HackMD</Link>.
+          </p>
+        </CardContent>
+      </Card>
+    </section>
+    
+    
+    <section class="flex flex-col gap-y-4">
+      <h2 class="text-2xl font-bold">Latest posts</h2>
+      <ul class="not-prose flex flex-col gap-y-4">
+        {
+          blog.map((post) => (
+            <li>
+              <BlogCard entry={post} />
+            </li>
+          ))
+        }
+      </ul>
+      <div class="flex justify-center">
+        <Link
+          href="/blog"
+          class={buttonVariants({ variant: 'ghost' }) + ' group'}
+        >
+          See all posts <span
+            class="ml-1.5 transition-transform group-hover:translate-x-1"
+            >&rarr;</span
+          >
+        </Link>
+      </div>
+    </section>
+  </Container>
+</Layout>
