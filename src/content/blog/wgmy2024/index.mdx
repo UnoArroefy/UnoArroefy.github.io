@@ -11,7 +11,7 @@ authors: ['yqroo']
 
 This week i'm trying to upsolve the only unsolved rev challenge from [wargames.my](https://ctf2024.wargames.my/). The challenge is straightforward but requires more time to understand what the program does. I'll explain it as briefly as possible to avoid wasting your time.
 
-# Finding Main Function
+## Finding Main Function
 
 The binary was stripped, to find the main function we could check entrypoint (usually start function) and ida will directly show us the start function.
 
@@ -42,7 +42,7 @@ _initenv = qword_14000D0F8;
 result = sub_140001C80((unsigned int)dword_14000D108, qword_14000D100);
 ```
 
-# What's in main?
+## What's in main?
 
 We could confirm the main function by looking at the use of argc, and argv which has int and char** data types. We could also see the flag input coming from argv.
 
@@ -89,7 +89,7 @@ __int64 __fastcall sub_140001C80(int a1, const char **a2)
 
 There's lot of function but most of them are just initialization for VM. The only interesting function is that one used in while loop.
 
-# VM implementation
+## VM implementation
 
 Inside that function we coulde see
 
@@ -134,7 +134,7 @@ case 0x3C:
 
 U could read all the instruction in the function since there's so many.
 
-# Reimplement VM
+## Reimplement VM
 
 We can debug the VM execution with a debugger. Since there are no anti-debugging mechanisms, we can easily use IDA or an x64 debugger to trace the execution. However, I feel that this approach is not reliable, as I often lose track of what is happening.
 
@@ -382,7 +382,7 @@ print([hex(i) for i in reg])
 
 It's a bit messy I don't have time to clean it or make a better one.
 
-# Understanding Flag Checker
+## Understanding Flag Checker
 
 Once we got our vm then we could analyze the output.
 

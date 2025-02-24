@@ -7,7 +7,7 @@ image: './CJ2024-MFA.png'
 authors: ['yqroo']
 ---
 
-# Introduction
+## Introduction
 
 Cyber Jawara (CJ) is one of the biggest annual CTF competitions in Indonesia. Originally scheduled for December 2024, the event was postponed, and the qualification round began in January 2025. By the end of the qualification period, several challenges remained unsolved, including one reversing challenge "MFA", which caught my interest. After the competition ended, I decided to revisit it and attempt to solve it just for fun.
 
@@ -19,7 +19,7 @@ That's huge, but bear with me because this challenge is actually kind of interes
 
 Oh, and by the way IDA couldn't decompile it because of `stack frame is too big` error, However, as explained [here](https://hex-rays.com/blog/igors-tip-of-the-week-147-fixing-stack-frame-is-too-big), it can be fixed. Fortunately, you don’t encounter this issue when using Ghidra. For me, though, I just use that graph as my go-to tool to understand the program itself.
 
-# Program Flow
+## Program Flow
 
 When the program run it give use this 3 input : 
 
@@ -396,7 +396,7 @@ After those iteration we got
 
 To keep it brief, `algo4` is just AES. I didn’t bother figuring out which AES variant it uses, because in the end, it simply writes the result to a file. I can just take the written file and proceed from there, since what happens next is a process being spawned for that file, as it is executable.
 
-# Debugging Hell
+## Debugging Hell
 
 So now we understand the flow of execution and how to pass all the checks. However, I haven’t gone into detail about the debugging part, which actually plays a crucial role in solving this challenge.
 
@@ -547,7 +547,7 @@ dbg.run_debug()
 
 I also learned the trick of using breakpoint handlers by reading a bit of the GDB script documentation.
 
-# Second Stage
+## Second Stage
 
 Enough with the Rust reversing, right? Well, not quite, because the second stage is also written in Rust.
 
@@ -771,7 +771,7 @@ So if you haven't already realized what kind of problem we're dealing with, perh
 
 If we input `10`, it will actually give us `v35 & v24 == 0`, so we just need to ensure that the bit we set doesn't end up in a position where there's already a 1. What a great way to hide maze challenge, that a-maze me.
 
-# Let's end this
+## Let's end this
 
 After realizing this was just a maze challenge, it became straightforward. I converted v24 into binary and to make it easier to solve, instead of dealing with a 1-dimensional maze, I turned it into a 2-dimensional maze and coded the solution [here](https://gist.github.com/UnoArroefy/3b2a392b696c4c7d8b10db7f029d2872).
 
